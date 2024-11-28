@@ -1,0 +1,12 @@
+#This Is A Comment
+#How To Print (print Hello,World!)
+#Create A Variable (int,string,float var: 3,hi,3.4!)
+#Print a variable (print /var!)
+#Add amount to variable (add var:4) Now Var will equal 7 since it was 3
+#Subtract amount to variable (sub var:4) Now Var will equal -1 since it was 3
+#Multiply amount to variable (mul var:4) Now Var will equal 12 since it was 3
+#Divide amount to variable (div var:4) Now Var will equal 0.75 since it was 3
+#That's Everything Good Luck
+int x:4!
+div x:4!
+print /x!
