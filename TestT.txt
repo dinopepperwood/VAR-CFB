@@ -6,7 +6,40 @@
 #Subtract amount to variable (sub var:4) Now Var will equal -1 since it was 3
 #Multiply amount to variable (mul var:4) Now Var will equal 12 since it was 3
 #Divide amount to variable (div var:4) Now Var will equal 0.75 since it was 3
+#Loop
 #That's Everything Good Luck
-int x:4!
-div x:4!
+int x:10!
 print /x!
+print Hello,World!
+pow x: 10!
+print /x!
+int d:5!
+print Hi /x how's it going /d!
+print /d!
+loopa d : 5 : 3!
+print /d!
+loops d : 3 : 5!
+print New Var D:/d!
+loopm d : 3 : 2!
+print /d!
+loopd d : 5 : 1!
+print /d!
+loope d : 5 : 3!
+print /d!
+int a:3!
+int e:4!
+if a < e: A is less than E!
+ifn1 3 < e: 3 is less than E!
+ifn2 e = 4: E is equal to 4!
+ifa a < e: a:3!
+print /a!
+ifs a > e: a:5!
+print /a!
+ifm e > a: a:10!
+print /a!
+ifd a > e: a:5!
+print /a!
+ife a < e: a:3!
+print /a!
+loop a:3!
+loopp a:Hello,World:5!
