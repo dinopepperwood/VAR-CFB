@@ -6,7 +6,11 @@
 #Subtract amount to variable (sub var:4) Now Var will equal -1 since it was 3
 #Multiply amount to variable (mul var:4) Now Var will equal 12 since it was 3
 #Divide amount to variable (div var:4) Now Var will equal 0.75 since it was 3
-#Loop
+#loop will loop a variable (loop var:3!) will print the value of a 3 times
+#loopa,loops,loopm,loopd,loope will do a operating in order it goes add,subtract,multiply,division,exponentiation (loopa a:3:5) It will add a by 3 by 5 times just put different letters same syntax
+#ifs four conditions(>,<,=,!=) (if var1 > var2: E!) if var1 is greater than var2 it will print E
+#ifn1 and ifn2 are tricky a normal if can only compare variables but ifn1 compares the first number and compares the variable and ifn2 compares the variable to a second number (loopn1 3 > a: didje!) Could print didje
+#ifa,ifs,ifm,ifd,ife compares two variables and does a operating depending on which if it goes in order add,subtract,multiplication,division,exponentiation 
 #That's Everything Good Luck
 int x:10!
 print /x!
@@ -43,3 +47,5 @@ ife a < e: a:3!
 print /a!
 loop a:3!
 loopp a:Hello,World:5!
+loopa a:3:5!
+print /a!
