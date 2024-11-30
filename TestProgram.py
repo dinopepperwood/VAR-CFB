@@ -23,6 +23,10 @@ ifm_pattern = r"ifm\s+(\w+)\s+(<|>|=|!=)\s+(\w+)\s*:\s+(\w+)\s*:\s*(.+?)!"
 ifd_pattern = r"ifd\s+(\w+)\s+(<|>|=|!=)\s+(\w+)\s*:\s+(\w+)\s*:\s*(.+?)!"
 ife_pattern = r"ife\s+(\w+)\s+(<|>|=|!=)\s+(\w+)\s*:\s+(\w+)\s*:\s*(.+?)!"
 loopp_pattern = r"loopp\s+(\w+)\s*:\s*(.+?)\s*:(.+?)!"
+input_pattern = r"input\s*:\s*(\w+)!"
+int_pattern = r"int\s*:\s*(\w+)!"
+string_pattern = r"string\s*:\s*(\w+)!"
+float_pattern = r"float\s*:\s*(\w+)!"
 with open("TestT.txt", "r") as file:
     for line in file:
         line = line.strip()  
@@ -300,19 +304,25 @@ with open("TestT.txt", "r") as file:
                 if condition == '>':
                     if variables[var1] > variables[var2]:
                         if var3 in variables:
-                            variables[var3] /= num
+                            if type(variables[var3]) is int:
+                                variables[var3] //= num
+                            elif type(variables[var3]) is float:
+                                variables[var3] /= num
                 elif condition == '<':
-                    if variables[var1] < variables[var2]:
-                        if var3 in variables:
-                            variables[var3] /= num
+                        if type(variables[var3]) is int:
+                                variables[var3] //= num
+                        elif type(variables[var3]) is float:
+                                variables[var3] /= num
                 elif condition == '=':
-                    if variables[var1] == variables[var2]:
-                        if var3 in variables:
-                            variables[var3] /= num
+                        if type(variables[var3]) is int:
+                                variables[var3] //= num
+                        elif type(variables[var3]) is float:
+                                variables[var3] /= num
                 elif condition == '!=':
-                    if variables[var1] == variables[var2]:
-                        if var3 in variables:
-                            variables[var3] -= num 
+                        if type(variables[var3]) is int:
+                                variables[var3] //= num
+                        elif type(variables[var3]) is float:
+                                variables[var3] /= num
         elif match := re.match(ife_pattern, line):
             var1, condition, var2, var3,num = match.groups()
             num = num.strip()
@@ -341,6 +351,28 @@ with open("TestT.txt", "r") as file:
             if var in variables:
                 for _ in range(amount):
                     print(message)
+        elif match:= re.match(input_pattern,line):
+            input_var = match.group(1)
+            if input_var in variables:
+                type_var = type(variables[input_var])
+                if type_var is int:
+                    variables[input_var] = int(input())
+                elif type_var is str:
+                    variables[input_var] = input()
+                elif type_var is float:
+                    variables[input_var] = float(input())
+        elif match:= re.match(int_pattern,line):
+            var = match.group(1)
+            if var in variables:
+                variables[var] = int(variables[var])
+        elif match:= re.match(string_pattern,line):
+            var = match.group(1)
+            if var in variables:
+                variables[var] = str(variables[var])
+        elif match:= re.match(float_pattern,line):
+            var = match.group(1)
+            if var in variables:
+                variables[var] = float(variables[var])
         elif match := re.match(print_pattern, line):
             msg = match.group(1)
 

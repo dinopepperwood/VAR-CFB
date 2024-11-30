@@ -12,8 +12,11 @@
 #ifn1 and ifn2 are tricky a normal if can only compare variables but ifn1 compares the first number and compares the variable and ifn2 compares the variable to a second number (loopn1 3 > a: didje!) Could print didje
 #ifa,ifs,ifm,ifd,ife compares two variables and does a operating depending on which if it goes in order add,subtract,multiplication,division,exponentiation syntax (ifa d > e: a:5!) would add a by 5
 #loopp like the loop but will instead print a message that you pick (loopp a:Hello,World:3!) prints Hello,World 3 times
+#Int,Float,String (int,float,string:var!) turns a datatype to a different datatype
+#Input syntax(input:var!) can input and change a value but must be the same data type
 #This syntax might be hard but I'm sure you'll get the hang of it
 #That's Everything Good Luck
+#Always end something with a exclamation point (!)
 int x:10!
 print /x!
 print Hello,World!
@@ -51,3 +54,13 @@ loop a:3!
 loopp a:Hello,World!:5!
 loopa a:3:5!
 print /a!
+div a:2!
+input:a!
+print /a!
+float n:3.0!
+int:n!
+print /n!
+float:n!
+print /n!
+string:n!
+print /n!
