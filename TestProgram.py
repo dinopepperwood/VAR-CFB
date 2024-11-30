@@ -28,7 +28,9 @@ int_pattern = r"int\s*:\s*(\w+)!"
 string_pattern = r"string\s*:\s*(\w+)!"
 float_pattern = r"float\s*:\s*(\w+)!"
 function_pattern = r"func\s*(\w+)\s*:(\w+)!"
-call_pattern= r"call\s*:(\w+)!"
+call_pattern= r"call\s*:\s*(\w+)!"
+say_pattern = r"say\s*:\s*(\w+)!"
+change_pattern = r"change\s+(\w+)\s*:\s*(int|string|float)\s*:\s*(.+?)!"
 with open("TestT.txt", "r") as file:
     for line in file:
         line = line.strip()  
@@ -382,6 +384,19 @@ with open("TestT.txt", "r") as file:
             func_call = match.group(1)
             if func_call in functions:
                 print(functions[func_call])
+        elif match := re.match(say_pattern,line):
+            sayv = match.group(1)
+            if sayv in variables:
+                print(variables[sayv])
+        elif match := re.match(change_pattern,line):
+            variable,dtype,newv = match.groups()
+            if variable in variables:
+                if dtype == 'int':
+                    variables[variable] = int(newv)
+                elif dtype == 'float':
+                    variables[variable] = float(newv) 
+                elif dtype == "string":
+                    variables[variable] = str(newv)
         elif match := re.match(print_pattern, line):
             msg = match.group(1)
         
@@ -398,4 +413,3 @@ with open("TestT.txt", "r") as file:
 
         else:
             print(f"Unrecognized command: {line}")
-print(functions)

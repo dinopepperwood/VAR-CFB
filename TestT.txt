@@ -15,6 +15,8 @@
 #Int,Float,String (int,float,string:var!) turns a datatype to a different datatype
 #Input syntax(input:var!) can input and change a value but must be the same data type
 #Functions all it does is print and thats it (func name:Hello,World!) then to run that function do (call:name!) will result Hello,World!
+#Say will just print a variable (say:var!)
+#Change will change the value of a variable (change var:int,string,float:new_value!) will change the variable
 #This syntax might be hard but I'm sure you'll get the hang of it
 #That's Everything Good Luck
 #Always end something with a exclamation point (!)
@@ -67,3 +69,6 @@ string:n!
 print /n!
 func ed:hi!
 call:ed!
+say:n!
+change n: string: heeid!
+say:n!
