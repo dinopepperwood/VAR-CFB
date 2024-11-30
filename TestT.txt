@@ -12,6 +12,7 @@
 #ifn1 and ifn2 are tricky a normal if can only compare variables but ifn1 compares the first number and compares the variable and ifn2 compares the variable to a second number (loopn1 3 > a: didje!) Could print didje
 #ifa,ifs,ifm,ifd,ife compares two variables and does a operating depending on which if it goes in order add,subtract,multiplication,division,exponentiation syntax (ifa d > e: a:5!) would add a by 5
 #loopp like the loop but will instead print a message that you pick (loopp a:Hello,World:3!) prints Hello,World 3 times
+#This syntax might be hard but I'm sure you'll get the hang of it
 #That's Everything Good Luck
 int x:10!
 print /x!
