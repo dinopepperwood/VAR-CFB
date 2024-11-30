@@ -1,6 +1,6 @@
 import re
 variables = {}
-
+functions = {}
 variable_pattern = r"(int|string|float)\s+(\w+)\s*:\s*(.+?)!"
 print_pattern = r"print\s+(.+?)!"
 add_pattern = r"add\s+(\w+)\s*:\s*(.+?)!"
@@ -27,6 +27,8 @@ input_pattern = r"input\s*:\s*(\w+)!"
 int_pattern = r"int\s*:\s*(\w+)!"
 string_pattern = r"string\s*:\s*(\w+)!"
 float_pattern = r"float\s*:\s*(\w+)!"
+function_pattern = r"func\s*(\w+)\s*:(\w+)!"
+call_pattern= r"call\s*:(\w+)!"
 with open("TestT.txt", "r") as file:
     for line in file:
         line = line.strip()  
@@ -373,9 +375,16 @@ with open("TestT.txt", "r") as file:
             var = match.group(1)
             if var in variables:
                 variables[var] = float(variables[var])
+        elif match := re.match(function_pattern,line):
+            func_name,output = match.groups()
+            functions[func_name] = output
+        elif match := re.match(call_pattern,line):
+            func_call = match.group(1)
+            if func_call in functions:
+                print(functions[func_call])
         elif match := re.match(print_pattern, line):
             msg = match.group(1)
-
+        
             while '/' in msg:
                 start_index = msg.find('/')
                 end_index = msg.find(' ', start_index) if msg.find(' ', start_index) != -1 else len(msg)
@@ -389,3 +398,4 @@ with open("TestT.txt", "r") as file:
 
         else:
             print(f"Unrecognized command: {line}")
+print(functions)
